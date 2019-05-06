@@ -52,7 +52,7 @@ void KeyboardLayoutManager::Init(Local<Object> exports, Local<Object> module) {
   Nan::SetMethod(proto, "getInstalledKeyboardLanguages", KeyboardLayoutManager::GetInstalledKeyboardLanguages);
   Nan::SetMethod(proto, "getCurrentKeymap", KeyboardLayoutManager::GetCurrentKeymap);
 
-  module->Set(Nan::New("exports").ToLocalChecked(), newTemplate->GetFunction());
+  module->Set(Nan::New("exports").ToLocalChecked(), Nan::GetFunction(newTemplate).ToLocalChecked());
 }
 
 NODE_MODULE(keyboard_layout_manager, KeyboardLayoutManager::Init)

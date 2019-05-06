@@ -16,7 +16,7 @@ void KeyboardLayoutManager::Init(v8::Local<v8::Object> exports, v8::Local<v8::Ob
   Nan::SetMethod(proto, "getCurrentKeyboardLanguage", KeyboardLayoutManager::GetCurrentKeyboardLayout); // NB:  Intentionally mapped to same stub
   Nan::SetMethod(proto, "getInstalledKeyboardLanguages", KeyboardLayoutManager::GetInstalledKeyboardLanguages);
   Nan::SetMethod(proto, "getCurrentKeymap", KeyboardLayoutManager::GetCurrentKeymap);
-  module->Set(Nan::New("exports").ToLocalChecked(), newTemplate->GetFunction());
+  module->Set(Nan::New("exports").ToLocalChecked(), Nan::GetFunction(newTemplate).ToLocalChecked());
 }
 
 NODE_MODULE(keyboard_layout_manager, KeyboardLayoutManager::Init)
